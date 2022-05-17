@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+    font-family: 'dancingscriptot';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/dancingscriptot.ttf') format('truetype');
+}
+  
+.logo-group {
+  position: relative;
+}
+
+.first {
+  height: 17px;
+  width: 22px;
+  left: 32px;
+  top: 8px;
+  background: rgba(13, 117, 255, 0.8);
+  position: absolute;
+}
+.text-info{
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius:50px;
+}
+.second {
+    height: 17px;
+    width: 22px;
+    left: 17px;
+    top: 15px;
+    border-radius: 0px;
+    background: rgba(13, 117, 255, 0.8);
+    position: absolute;
+}
+.third {
+    height: 17px;
+    width: 22px;
+    left: 27px;
+    top: 22px;
+    border-radius: 0px;
+    background: rgba(13, 117, 255, 0.8);
+    position: absolute;
+    
+}
+.logo-text{
+    font-family: dancingscriptot;
+    font-size: 30px;
+}
+.icon-mode{
+    width: 30px;
+    height: 30px;
+}
+.icon-mode img{
+    width: 100%;
+}
+/*.search-input{*/
+/*    background-color: #F8FAFD;*/
+/*}*/
+.box-text{
+    font-size: 12px;
+}
+.delete-icon{
+    width: 30px;
+    height: 30px;
+}
+.read-icon{
+    width: 30px;
+    height: 30px;
+}
+.read-icon img{
+    width: 100%;
+}
+.delete-icon img{
+    width: 100%;
+}
+/*.bookmark-box{*/
+/*    background-color:#F8FAFD;*/
+/*}*/
+.calendar-icon{
+    width: 25px;
+    height: 25px;
+}
+.calendar-icon img{
+    width: 100%;
+}

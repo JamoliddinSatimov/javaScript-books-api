@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>BestSeller</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="row align-items-center py-2">
+          <div class="col-md-3">
+            <div class="logo-group">
+              <div class="first logo"></div>
+              <div class="second logo"></div>
+              <div class="third logo"></div>
+              <div class="logo-text text-center">BookShelter</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <form id="form">
+              <div class="input-group input-group-lg">
+                <input
+                  type="text"
+                  class="search-input form-control rounded-pill bg-light"
+                  aria-label="Sizing example input"
+                  placeholder="Search books..."
+                  aria-describedby="inputGroup-sizing-lg"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="col-md-3 d-flex align-items-end justify-content-end">
+            <div class="icon-mode">
+              <img src="icons/sunny.png" alt="icon topilmadi" />
+            </div>
+          </div>
+        </div>
+        <hr class="m-0" />
+        <div class="row py-2">
+          <div
+            class="col-md-9 offset-3 d-flex justify-content-sm-between align-items-center"
+          >
+            <div class="text-result p-2">
+              <h5 class="m-0">Books number <span id="books_number">0</span> </h5>
+            </div>
+            <div class="order-btn">
+              <button class="btn btn-light">
+                <div class="calendar-icon d-inline-block">
+                  <img src="icons/calendar.png" alt="icon topilmadi" />
+                </div>
+                ordered by newest
+              </button>
+            </div>
+          </div>
+        </div>
+        <hr class="m-0" />
+      </header>
+      <main class="main">
+        <div class="row">
+          <div class="col-md-3 border-end">
+            <div class="left-title p-2">
+              <h4>Bookmarks</h4>
+              <p>if you don't like to read, you haven't found the right book</p>
+            </div>
+            <div id="bookmark_wrapper">
+
+            </div>
+          </div>
+          <div class="col-md-9 bg-light">
+            <div class="row wrapper align-self-stretch"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Button trigger modal -->
+
+
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 id="modal-title" class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="d-flex justify-content-center p-2">
+              <img src="" alt="" class="img-thumbnail modal-img text-center" id="img_modal">
+            </div>
+            <p class="lead modal_info">
+              
+            </p>
+            <p>Author: <span class="text-info bg-light mx-3" id="modal_author">Jo Bayden</span></p>
+            <p>Published: <span class="text-info bg-light mx-3" id="modal_year">2019</span></p>
+            <p>Publishers: <span class="text-info bg-light mx-3" id="modal_publisher">Hollman</span></p>
+            <p>Categories: <span class="text-info bg-light mx-3" id="modal_categories">Computers</span></p>
+            <p>Page Count: <span class="text-info bg-light mx-3" id="modal_pgCount">346</span></p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <a href="" class="btn btn-primary w-25" id="modal_read_btn" target="_blank">Read</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <template id="bookmark-template">
+      <div class="bookmark-box p-3 d-flex justify-content-between rounded-1 align-items-center bg-light mb-1">
+        <div class="bookmark-title w-75">
+          <h6 class="mb-1" id="book_title">Phyton</h6>
+          <p class="box-text m-0" id="book_author">David M. Breazley</p>
+        </div>
+        <div
+          class="bookmark-icons d-flex justify-content-evenly align-items-center w-50"
+        >
+          <div class="read-icon">
+            <a href="" id="read_btn_icon" target="_blank"><img src="icons/book.png" alt="icon topilmadi" /></a>
+          </div>
+          <div class="delete-icon">
+            <img src="icons/delete.png" id="delete_icon" alt="icon topilmadi" />
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <template id="card-template">
+      <div class="col-md-4 mt-2">
+        <div class="card p-2" style="width: 100%">
+          <div class="card-header">
+            <img src="..." class="card-img-top" alt="..." />
+          </div>
+          <div class="card-body p-0">
+            <h5 id="card-title" class="card-title mb-0">Card title</h5>
+            <p id="box-text" class="box-text m-0">David M. Breazley</p>
+            <p id="box-year" class="box-text m-0">2009</p>
+          </div>
+          <div class="d-flex pt-2 justify-content-between flex-md-wrap">
+            <button class="btn btn-warning px-4" id="bookmarkBtn">Bookmark</button>
+            <button
+              type="button"
+              id="moreInfo-btn"
+              class="btn btn-light px-4"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              More info
+            </button>
+            <a
+              href="#"
+              id="read-btn"
+              target="_blank"
+              class="text-decoration-none btn btn-secondary w-100 mt-1 d-inline-block"
+              >Read</a
+            >
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <script src="js/bootstrap.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
